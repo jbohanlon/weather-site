@@ -1,0 +1,72 @@
+@import "~bootswatch/dist/lux/variables";
+@import "./variable-overrides";
+@import "~bootstrap/scss/bootstrap";
+@import "~bootswatch/dist/lux/bootswatch";
+
+$footer-height: 80px;
+
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+	padding-bottom: $footer-height;
+}
+
+.btn-sm {
+	font-size: 12px;
+}
+
+#weather-output {
+	margin-bottom: 2rem;
+}
+
+#weather-warnings .weather-warning:last-of-type {
+	margin-bottom: -1rem;
+}
+
+#windy {
+	/* Needs the 32px offset to account for the Windy progress-bar div */
+	height: calc(100% - 32px);
+
+	.progress-bar {
+		/* The styles here fix a Bootstrap 4 conflict with the .progress-bar class */
+		background: none;
+		overflow: visible;
+	}
+
+	#playpause.clickable {
+		&.off::before {
+			/* Fix play button: The styles here fix a Bootstrap 4 conflict with global ::before styles class */
+			left: 0.1em !important;
+		}
+
+		&::before {
+			/* Fix pause button: The styles here fix a Bootstrap 4 conflict with global ::before styles class */
+			left: 0.025em !important;
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	#multi-day-forecast .card img {
+		height: 200px;
+		width: 200px;
+		margin: 1em auto 0;
+	}
+}
+
+/* Footer */
+
+.footer-link-spacer {
+	margin: 0 1rem;
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+	height: $footer-height;
+	width: 100%;
+	background-color: #55595c;
+}

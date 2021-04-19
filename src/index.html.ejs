@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Weather Site</title>
+
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+		<link rel="manifest" href="/site.webmanifest" />
+		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#feed9b" />
+		<meta name="msapplication-TileColor" content="#da532c" />
+		<meta name="theme-color" content="#ffffff" />
+
+		<script defer src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+		<script defer src="https://api.windy.com/assets/map-forecast/libBoot.js"></script>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<div class="container">
+				<a class="navbar-brand" href="#">Weather Site</a>
+				<form id="weather-form" class="form-inline my-2 my-md-1 my-xl-0 ml-auto">
+					<input
+						id="city-input"
+						class="form-control mr-sm-2"
+						type="search"
+						placeholder="Enter a U.S. city"
+						aria-label="Enter a U.S. city"
+					/>
+					<button class="btn btn-primary my-2 my-sm-0 btn-sm-block" type="submit">Get weather</button>
+				</form>
+			</div>
+		</nav>
+
+		<main id="weather-output"></main>
+
+		<footer class="text-center py-3 bg-dark text-light">
+			<p class="mb-0">
+				Weather Data From
+				<br />
+				<%= 
+					['https://www.weather.gov', 'https://openweathermap.org', 'https://www.windy.com'].map(
+						(url) => `<a class="text-light" href="${url}">${url}</a>`
+					).join(
+						`<span class="footer-link-spacer">|</span>`
+					)
+				%>
+			</p>
+		</footer>
+	</body>
+</html>
